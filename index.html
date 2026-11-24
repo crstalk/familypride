@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <!-- Чтобы сайт правильно выглядел на телефоне -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Аренда животных для съёмок и праздников</title>
+  <meta name="description" content="Аренда дрессированных животных для фотосессий, праздников и видеосъёмок. Здоровые и привитые животные, доставка по городу, сопровождение дрессировщика.">
+
+  <!-- Шрифты с кириллицей из Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Golos+Text:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!--
+    Спрайт иконок: рисуем иконку один раз, а потом используем
+    её где угодно через <svg><use href="#paw"></use></svg>
+  -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="paw" viewBox="0 0 24 24">
+      <ellipse cx="6" cy="9" rx="2" ry="2.5"/>
+      <ellipse cx="10" cy="5.5" rx="2" ry="2.6"/>
+      <ellipse cx="14" cy="5.5" rx="2" ry="2.6"/>
+      <ellipse cx="18" cy="9" rx="2" ry="2.5"/>
+      <path d="M12 11c-3 0-6 4.5-6 7a2.5 2.5 0 0 0 3.2 2.4c1-.3 1.8-.6 2.8-.6s1.8.3 2.8.6A2.5 2.5 0 0 0 18 18c0-2.5-3-7-6-7z"/>
+    </symbol>
+    <symbol id="check" viewBox="0 0 24 24">
+      <path d="M20 6 9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="star" viewBox="0 0 24 24">
+      <path d="M12 2l3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+    </symbol>
+  </svg>
+
+  <!-- ===================== ШАПКА ===================== -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#top" class="logo">
+        <span class="logo__icon"><svg><use href="#paw"></use></svg></span>
+        <span class="logo__text">
+          <span class="logo__name">Аренда животных</span>
+          <span class="logo__tagline">для съёмок и праздников</span>
+        </span>
+      </a>
+
+      <!-- Кнопка меню для телефона -->
+      <button class="burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav" id="nav" aria-label="Основное меню">
+        <a href="#match">Подбор</a>
+        <a href="#animals">Животные</a>
+        <a href="#gallery">Галерея</a>
+        <a href="#how">Как это проходит</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#faq">Вопросы</a>
+      </nav>
+
+      <a href="tel:+79199997575" class="btn btn--outline-light header__phone">+7 (919) 999-75-75</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===================== ПЕРВЫЙ ЭКРАН ===================== -->
+    <section class="hero" id="top">
+      <!-- Декоративные следы лап -->
+      <div class="hero__trail" aria-hidden="true">
+        <svg><use href="#paw"></use></svg><svg><use href="#paw"></use></svg>
+        <svg><use href="#paw"></use></svg><svg><use href="#paw"></use></svg>
+        <svg><use href="#paw"></use></svg><svg><use href="#paw"></use></svg>
+        <svg><use href="#paw"></use></svg><svg><use href="#paw"></use></svg>
+      </div>
+
+      <div class="container hero__inner">
+        <div class="hero__text">
+          <span class="badge">Фотосессии · праздники · кино и реклама</span>
+          <h1 class="hero__title">Живые звёзды для ваших <span class="accent">кадров</span> и праздников</h1>
+          <p class="hero__lead">Наши животные здоровы, привиты и привыкли к камерам и людям. Каждого сопровождает опытный дрессировщик.</p>
+          <div class="hero__buttons">
+            <a href="#match" class="btn btn--accent btn--big">Подобрать животное за 3 вопроса</a>
+            <a href="#animals" class="btn btn--outline-light btn--big">Все животные</a>
+          </div>
+        </div>
+
+        <!-- Карточка-паспорт питомца -->
+        <div class="hero__card-wrap">
+          <article class="passport" aria-label="Пример паспорта питомца">
+            <div class="passport__head">
+              <span class="passport__title">ПАСПОРТ ПИТОМЦА</span>
+              <span class="passport__num">№ [001]</span>
+            </div>
+            <div class="passport__body">
+              <img class="passport__photo" src="img/hero-lion-cub.jpg" alt="Львёнок">
+              <!-- Без loading="lazy": это первый экран, фото нужно сразу -->
+              <dl class="passport__info">
+                <dt>Вид</dt><dd>Львёнок</dd>
+                <dt>Кличка</dt><dd>[ИМЯ]</dd>
+                <dt>Возраст</dt><dd>[ВОЗРАСТ]</dd>
+                <dt>Подходит</dt><dd>Фото, видео</dd>
+              </dl>
+            </div>
+            <ul class="passport__checks">
+              <li><svg><use href="#check"></use></svg>Привит, ветеринарный контроль</li>
+              <li><svg><use href="#check"></use></svg>Работает с дрессировщиком</li>
+              <li><svg><use href="#check"></use></svg>Привык к вспышке и камере</li>
+            </ul>
+            <div class="stamp" aria-hidden="true">ГОТОВ<br>К СЪЁМКЕ</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ПОДБОР ЖИВОТНОГО ===================== -->
+    <section class="section container" id="match">
+      <div class="section__head">
+        <h2 class="h2">Кто вам подойдёт? Ответьте на 3 вопроса</h2>
+        <p class="section__lead">Выберите формат, гостей и место — покажем, кто подойдёт лучше всего. Окончательно животное подберёт дрессировщик.</p>
+      </div>
+
+      <!-- Кнопки вопросов создаёт script.js -->
+      <div class="quiz" id="quiz"></div>
+
+      <div class="result">
+        <p class="result__title">Вам подойдут:</p>
+        <!-- Результат подбора тоже заполняет script.js -->
+        <div class="result__list" id="result" aria-live="polite"></div>
+        <a href="#contacts" class="btn btn--accent">Забронировать</a>
+      </div>
+    </section>
+
+    <!-- ===================== ВСЕ ЖИВОТНЫЕ ===================== -->
+    <section class="section-bg section-bg--sand" id="animals">
+      <div class="section container">
+        <div class="section__head">
+          <h2 class="h2">Наши животные</h2>
+          <p class="section__lead">21 вид — у каждого свой паспорт: размер, можно ли детям и где может работать.</p>
+        </div>
+        <!-- Карточки создаёт script.js из списка ANIMALS -->
+        <div class="animals" id="animals-grid"></div>
+      </div>
+    </section>
+
+    <!-- ===================== ГАЛЕРЕЯ ===================== -->
+    <section class="section container" id="gallery">
+      <div class="section__head">
+        <h2 class="h2">На съёмках и праздниках</h2>
+        <p class="section__lead">Так наши животные работают на фотосессиях, детских праздниках и мероприятиях.</p>
+      </div>
+      <!-- Плитка «кирпичиками»: фото разной высоты, CSS сам раскладывает их по колонкам -->
+      <div class="gallery">
+        <figure class="gallery__item">
+          <img src="img/gallery/tiger-photoshoot.jpg" alt="Фотосессия с тигром в интерьере" loading="lazy">
+          <figcaption>Фотосессия с тигром</figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <img src="img/gallery/raccoon-ball.jpg" alt="Енот стоит на задних лапах с мячом" loading="lazy">
+          <figcaption>Енот-артист с мячом</figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <img src="img/gallery/young-lion.jpg" alt="Молодой лев отдыхает на траве" loading="lazy">
+          <figcaption>Молодой лев на прогулке</figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <img src="img/fox.jpg" alt="Девушка с лисой у реки" loading="lazy">
+          <figcaption>Фотосессия с лисой</figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <img src="img/gallery/cockatoo-event.jpg" alt="Ведущий с какаду на плече на банкете" loading="lazy">
+          <figcaption>Какаду на банкете</figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <img src="img/gallery/lion-cub-photoshoot.jpg" alt="Девушка обнимает спящего львёнка" loading="lazy">
+          <figcaption>Нежная съёмка со львёнком</figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <img src="img/gallery/lion-cub-party.jpg" alt="Львёнок на столе, ребёнок гладит его" loading="lazy">
+          <figcaption>Львёнок на детском празднике</figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <img src="img/gallery/monkey-dress.jpg" alt="Обезьянка в розовом платье и шляпке" loading="lazy">
+          <figcaption>Обезьянка в образе</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===================== КАК ЭТО ПРОХОДИТ ===================== -->
+    <section class="section-bg section-bg--green" id="how">
+      <div class="section container">
+        <h2 class="h2">По следам: как проходит выезд</h2>
+        <ol class="steps">
+          <li class="step">
+            <span class="step__icon"><svg><use href="#paw"></use></svg></span>
+            <h3 class="step__title">1. Заявка</h3>
+            <p>Звоните или пишете — рассказываете о мероприятии, дате и месте.</p>
+          </li>
+          <li class="step">
+            <span class="step__icon"><svg><use href="#paw"></use></svg></span>
+            <h3 class="step__title">2. Подбор животного</h3>
+            <p>Подбираем животное под формат, возраст гостей и площадку.</p>
+          </li>
+          <li class="step">
+            <span class="step__icon"><svg><use href="#paw"></use></svg></span>
+            <h3 class="step__title">3. Приезд с дрессировщиком</h3>
+            <p>Привозим животное по городу и рассказываем гостям, как с ним общаться.</p>
+          </li>
+          <li class="step">
+            <span class="step__icon"><svg><use href="#star"></use></svg></span>
+            <h3 class="step__title">4. Праздник или съёмка</h3>
+            <p>Дрессировщик всё время рядом и следит за комфортом животного.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===================== ОТЗЫВЫ ===================== -->
+    <section class="section container" id="reviews">
+      <h2 class="h2">Отзывы клиентов</h2>
+      <div class="reviews">
+        <figure class="review">
+          <span class="review__tag">ФОТОСЕССИЯ</span>
+          <blockquote>Львёнок стал настоящей звездой снимков. Дрессировщик — внимательный профессионал.</blockquote>
+          <figcaption>Александра Романовна</figcaption>
+        </figure>
+        <figure class="review">
+          <span class="review__tag">ДЕТСКИЙ ПРАЗДНИК</span>
+          <blockquote>Енот и попугай — дети в восторге. Доставка и сопровождение на высшем уровне.</blockquote>
+          <figcaption>Кирилл Новиков</figcaption>
+        </figure>
+        <figure class="review">
+          <span class="review__tag">ВИДЕОСЪЁМКА</span>
+          <blockquote>Тигр был спокоен и легко работал с оператором. Съёмка прошла без проблем.</blockquote>
+          <figcaption>Мария Сидорова</figcaption>
+        </figure>
+        <figure class="review">
+          <span class="review__tag">ФОТОСЕССИЯ</span>
+          <blockquote>Арендовали пони — всё прошло гладко и весело. Рекомендую.</blockquote>
+          <figcaption>Александр Кузнецов</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===================== ВОПРОСЫ ===================== -->
+    <section class="section container faq-section" id="faq">
+      <h2 class="h2">Частые вопросы</h2>
+      <div class="faq">
+        <div class="faq__item is-open">
+          <button class="faq__q" type="button" aria-expanded="true">Сколько стоит аренда животного?<span class="faq__sign" aria-hidden="true"></span></button>
+          <div class="faq__a"><p>Стоимость зависит от животного и длительности. Точную сумму назовём по телефону.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" type="button" aria-expanded="false">Какие условия доставки?<span class="faq__sign" aria-hidden="true"></span></button>
+          <div class="faq__a"><p>Мы осуществляем доставку животных в пределах вашего города.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" type="button" aria-expanded="false">Какие требования к площадке?<span class="faq__sign" aria-hidden="true"></span></button>
+          <div class="faq__a"><p>Наши животные подходят для фотосессий, праздников и видеосъёмок. Мы учитываем формат и длительность мероприятия при подборе животного.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" type="button" aria-expanded="false">Нужен ли опыт общения с животными?<span class="faq__sign" aria-hidden="true"></span></button>
+          <div class="faq__a"><p>Нет — дрессировщик всё время рядом и подскажет, как правильно взаимодействовать с питомцем.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== КОНТАКТЫ И ЗАЯВКА ===================== -->
+    <section class="section container" id="contacts">
+      <div class="contacts">
+        <div class="contacts__info">
+          <h2 class="h2">Забронируйте дату</h2>
+          <p>Оставьте заявку или позвоните — ответим на вопросы и забронируем дату.</p>
+          <a href="tel:+79199997575" class="contacts__phone">+7 (919) 999-75-75</a>
+          <p>Татьяна Иванова · [EMAIL]</p>
+          <div class="contacts__social">
+            <a href="https://wa.me/79199997575" class="btn btn--dark">WhatsApp</a>
+            <a href="https://t.me/[USERNAME]" class="btn btn--dark">Telegram</a>
+            <a href="https://vk.ru/club126375122" class="btn btn--dark">ВКонтакте</a>
+          </div>
+        </div>
+
+        <form class="form" id="form" novalidate>
+          <label class="form__field">Имя
+            <input type="text" name="name" placeholder="Как к вам обращаться" required>
+          </label>
+          <label class="form__field">Телефон
+            <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
+          </label>
+          <label class="form__field">Дата мероприятия
+            <input type="date" name="date">
+          </label>
+          <!-- Ловушка для спам-ботов: людям не видна, боты её заполняют -->
+          <div class="form__hp" aria-hidden="true">
+            <label>Ваш сайт <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+          </div>
+          <label class="form__agree">
+            <input type="checkbox" name="agree" required>
+            <span>Согласен на обработку персональных данных и с <a href="policy.html">политикой конфиденциальности</a></span>
+          </label>
+          <button type="submit" class="btn btn--green btn--big">Отправить заявку</button>
+          <p class="form__message" id="form-message" role="status"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== ПОДВАЛ ===================== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>© <span id="year">2026</span> Аренда животных</span>
+      <a href="#top">Наверх ↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

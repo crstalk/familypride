@@ -1,0 +1,31 @@
+# Два контейнера:
+#   web   — сам сайт (Apache + PHP), наружу не смотрит
+#   caddy — принимает запросы из интернета, сам получает и продлевает
+#           HTTPS-сертификат и передаёт запросы контейнеру web
+#
+# Запуск:  docker compose up -d --build
+
+services:
+  web:
+    build: .
+    restart: unless-stopped
+    env_file: .env            # токен бота и ID чата берутся отсюда
+    environment:
+      TRUST_PROXY: "1"        # сайт стоит за Caddy — см. config.php
+
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data      # здесь хранятся сертификаты — не потеряются при перезапуске
+      - caddy_config:/config
+    depends_on:
+      - web
+
+volumes:
+  caddy_data:
+  caddy_config:

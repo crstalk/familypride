@@ -1,0 +1,6 @@
+# Замените домен на настоящий. Caddy сам получит HTTPS-сертификат
+# Let's Encrypt — certbot не нужен. Домен уже должен смотреть на IP сервера.
+example.ru, www.example.ru {
+    reverse_proxy web:80
+    encode gzip
+}

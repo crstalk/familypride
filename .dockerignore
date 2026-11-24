@@ -1,0 +1,10 @@
+# Эти файлы НЕ попадают внутрь образа
+.env
+.git
+Dockerfile
+docker-compose.yml
+Caddyfile
+.dockerignore
+README.md
+.env.example
+.gitignore
